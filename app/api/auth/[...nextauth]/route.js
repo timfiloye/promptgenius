@@ -1,19 +1,31 @@
-import nextAuth from "next-auth";
+import NextAuth from "next-auth";
 import Googleprovider from "next-auth/providers/google";
 import { signIn } from "next-auth/react";
+import { connectToDB } from "@utils/database";
+
 
 const handler = NextAuth({
     providers: [
         Googleprovider({
-            clientId: '',
-            clientSecret: '',
+            clientId: process.env.GOOGLE_ID,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET,
         })
     ],
     async session({session}) {
 
     },
     async signIn({profile}) {
+        try {
+            await connectToDB();
 
+            //check if a user already exists
+
+            //if not, create a new user
+
+            return true;
+        } catch (error) {
+            return false;
+        }
     }
 })
 
