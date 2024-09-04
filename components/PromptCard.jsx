@@ -7,7 +7,15 @@ import { usePathname, useRouter } from "next/navigation";
 
 const PromptCard = ({post, handleTagClick, handleEdit, handleDelete}) => {
   return (
-    <div>PromptCard...</div>
+    <div className="prompt_card">
+      <div className="flex justify-between items-start gap-5">
+        <div>
+          <Image
+            
+          />
+        </div>
+      </div>
+    </div>
   )
 }
 
